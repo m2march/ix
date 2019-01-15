@@ -1,4 +1,4 @@
-document.addEventListener('ready', function() {
+$(document).ready(function() {
     console.log("Loaded");
 });
 
