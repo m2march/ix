@@ -23,7 +23,7 @@ var symbols = [
     "brawler"
 ]
 
-class Level { 
+class Level {
     constructor(number) {
         this.number = number;
         this.symbols = random_items(number, symbols);
@@ -31,13 +31,28 @@ class Level {
 };
 
 class Memtest {
-    constructor() {}
+    constructor() {
+      this.start_time = new Date()
+      this.level = new Level(1)
+      this.img_holders = [$("#image1"), $("#image2"),
+                          $("#image3"), $("#image4")]
+
+      this.start();
+    }
+
+    start() {
+      for (var i = 0; i < this.level.number; i++) {
+        this.img_holders[i].src = "images/" + this.level.symbols[i] + ".jpg";
+      }
+    }
 };
 
 var TEST = true;
 
 $(document).ready(function() {
     console.log("Loaded");
+
+    var memtest = new Memtest();
 
     if (TEST) {
         console.log("Starting tests...");
@@ -57,4 +72,3 @@ $(document).ready(function() {
         console.log("Testing ended.");
     }
 });
-
