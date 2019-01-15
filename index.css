@@ -1,16 +1,23 @@
+/* Variables */
+:root {
+    /* https://color.adobe.com/es/Mi-tema-de-Color-color-theme-1706073/ */
+    --highlight-1: #E86605;
+    --highlight-2: #BF3400;
+    --bg-1: #FF9808;
+    --bg-2: #E8A204;
+    --soft-1: #FFE478;
+}
+
 body {
-    background-color: rgb(18, 168, 143);
+    background-color: var(--bg-1);
     text-align: center;
 }
 .jumbotron{
   background-color: inherit;
 }
-
-#images img{
-  width: 200px;
-  padding-bottom: 25px;
+#header > h2 {
+  color: var(--highlight-2);
 }
-
 
 #main {
    margin-top: 20px;
@@ -20,14 +27,39 @@ body {
   padding-bottom: 20px;
 }
 
-#images {
-  height: 200px;
+.row {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.img_cell {
+    width: 200px;
+    height: 200px;
+    background-color: var(--highlight-1);
+    margin: 5px;
+    border-width: 1px 0px 0px 1px;
+    border-style: solid;
+    border-color: var(--highlight-2);
+}
+
+.img_cell > img {  
+    max-height: 100%;  
+    max-width: 100%; 
+    width: inherit;
+    height: inherit;
+    position: absolute;  
+    top: 0;  
+    bottom: 0;  
+    left: 0;  
+    right: 0;  
+    margin: auto;
 }
 
 button{
   width: 200px;
   margin: 0 20px 0 20px;
 }
+
 input{
   height: 35px;
   margin: 0 20px 0 20px;

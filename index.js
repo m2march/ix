@@ -35,19 +35,23 @@ class Memtest {
     constructor() {
       this.IMG_INTERVAL = 1000; //ms
 
-      this.start_time = new Date()
-      this.level = new Level(1)
       this.img_holders = [$("#image1"), $("#image2"),
                           $("#image3"), $("#image4")]
+      this.start_time = new Date()
+      this.new_game();
+    }
+
+    new_game() {
+      this.level = new Level(1)
       this.responses = [];
 
       for (var i = 0; i < this.img_holders.length; i++) {
         this.img_holders[i].hide();
       }
-      this.start();
+      this.start_level();
     }
 
-    start() {
+    start_level() {
       this.responses = [];
       for (var i = 0; i < this.level.number; i++) {
         setTimeout(this.set_image.bind(this, i), i * this.IMG_INTERVAL);
@@ -73,11 +77,12 @@ class Memtest {
           if (this.responses.length == this.level.number) {
             // End game
             if (this.level.number == 4) {
-              alert("You won!")
+                alert("You won!")
+                this.new_game();
             }
             // End of level
             this.level = new Level(this.level.number + 1);
-            this.start();
+            this.start_level();
           }
       } else {
         // Incorrect answer
@@ -102,6 +107,8 @@ $(document).ready(function() {
       }
     });
 
+    $("#reset-btn").click(memtest.new_game.bind(memtest));
+
     if (TEST) {
         console.log("Starting tests...");
         var items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -112,7 +119,7 @@ $(document).ready(function() {
                 if (items.indexOf(x) < 0) {
                     console.log("" + x + " is not a valid value");
                 }
-                if (items.indexOf(x) < i) {
+                if (selected.indexOf(x) < j) {
                     console.log("" + x + " is repeated");
                 }
             }

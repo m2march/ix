@@ -13,30 +13,37 @@
     <div id="header">
       <h2>Welcome to XI Zombies Memo-test!</h2>
     </div>
-    <div class="row">
-      <button type="button" class="btn btn-primary" name="button">Start playing!</button>
-    </div>
     <div id="main" class="container">
-        <div class="row" id="number_field">
+        <div class="row">
+            <div class="col-sm-5" id="number_field">
+            </div>
         </div>
         <div id="images" class="row justify-content-center">
           <div class="container col-8">
-          <div class="col-lg-3">
-            <img id="image1" src="" alt="">
+          <div class="col-lg-3" align="center">
+            <div class="img_cell">
+                <img id="image1" src="" alt="">
+            </div>
           </div>
-          <div class="col-lg-3">
+          <div class="col-lg-3" align="center">
+            <div class="img_cell row align-items-center">
             <img id="image2" src="" alt="">
+            </div>
           </div>
-          <div class="col-lg-3">
+          <div class="col-lg-3" align="center">
+            <div class="img_cell">
             <img id="image3" src="" alt="">
+            </div>
           </div>
-          <div class="col-lg-3">
+          <div class="col-lg-3" align="center">
+            <div class="img_cell">
             <img id="image4" src="" alt="">
+            </div>
           </div>
         </div>
         </div>
         <div class="row justify-content-center">
-          <button type="button" class="col-3 btn btn-danger" name="reset">Reset, you Wuss!</button>
+          <button type="button" class="col-3 btn btn-danger" id="reset-btn" name="reset">Reset, you Wuss!</button>
           <input type="text" class="col-3" placeholder="Enter the symbol meaning">
           <button type="button" class="col-3 btn btn-success" name="sbmt">Submit</button>
         </div>
