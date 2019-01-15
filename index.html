@@ -10,15 +10,31 @@
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <div class="jumbotron">
-      <h1>Welcome to XI Zombies Memo-test!</h1>
+    <div id="header">
+      <h2>Welcome to XI Zombies Memo-test!</h2>
+    </div>
+    <div class="row">
+      <button type="button" class="btn btn-primary" name="button">Start playing!</button>
     </div>
     <div id="main" class="container">
-        <div id="number_field">
+        <div class="row" id="number_field">
         </div>
         <div class="col-2">
         </div>
         <div id="images" class="container col-8">
+<<<<<<< HEAD
+          <div class="col-lg-3">
+            <img id="image1" src="Tigre.jpg" alt="">
+          </div>
+          <div class="col-lg-3">
+            <img id="image2" src="Tigre.jpg" alt="">
+          </div>
+          <div class="col-lg-3">
+            <img id="image3" src="Tigre.jpg" alt="">
+          </div>
+          <div class="col-lg-3">
+            <img id="image4" src="Tigre.jpg" alt="">
+=======
           <div class="row">
             <div class="col-lg-3">
               <img id="image1" src="images/tiger.jpg" alt="">
@@ -32,12 +48,15 @@
             <div class="col-lg-3">
               <img id="image4" src="images/tiger.jpg" alt="">
             </div>
+>>>>>>> 7abf19941fd5a8d77915e666af15429602250105
           </div>
         </div>
         <div class="col-2">
         </div>
-        <div id="input_text">
-            <input type="type">
+        <div class="row justify-content-center">
+          <button type="button" class="col-3 btn btn-danger" name="reset">Reset, you Wuss!</button>
+          <input type="text" class="col-3" placeholder="Enter the symbol meaning">
+          <button type="button" class="col-3 btn btn-success" name="sbmt">Submit</button>
         </div>
     </div>
 </body>

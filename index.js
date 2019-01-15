@@ -1,6 +1,7 @@
 
 function random_items(k, items) {
     """ Selects `k` random items without repeats from `items` """
+
     var selected = [];
     for (var i = 0; i < k; i++) {
         var n_item = null;
