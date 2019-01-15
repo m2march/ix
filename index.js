@@ -33,6 +33,8 @@ class Level {
 
 class Memtest {
     constructor() {
+      this.IMG_INTERVAL = 1000; //ms
+
       this.start_time = new Date()
       this.level = new Level(1)
       this.img_holders = [$("#image1"), $("#image2"),
@@ -44,8 +46,17 @@ class Memtest {
     start() {
       this.responses = [];
       for (var i = 0; i < this.level.number; i++) {
-        this.img_holders[i].attr('src', "images/" + this.level.symbols[i] + ".jpg");
+        setTimeout(this.set_image.bind(this, i), i * this.IMG_INTERVAL);
+        setTimeout(this.unset_image.bind(this, i), (i + 1) * this.IMG_INTERVAL);
       }
+    }
+
+    set_image(x) {
+      this.img_holders[x].attr('src', "images/" + this.level.symbols[x] + ".jpg");
+    }
+
+    unset_image(x){
+      this.img_holders[x].attr('src', "images/transparent.png");
     }
 
     submit(){
@@ -57,7 +68,7 @@ class Memtest {
           if (this.responses.length == this.level.number) {
             // End game
             if (this.level.number == 4) {
-              
+              alert("You won!")
             }
             // End of level
             this.level = new Level(this.level.number + 1);
