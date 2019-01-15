@@ -40,6 +40,10 @@ class Memtest {
       this.img_holders = [$("#image1"), $("#image2"),
                           $("#image3"), $("#image4")]
       this.responses = [];
+
+      for (var i = 0; i < this.img_holders.length; i++) {
+        this.img_holders[i].hide();
+      }
       this.start();
     }
 
@@ -53,10 +57,11 @@ class Memtest {
 
     set_image(x) {
       this.img_holders[x].attr('src', "images/" + this.level.symbols[x] + ".jpg");
+      this.img_holders[x].show();
     }
 
     unset_image(x){
-      this.img_holders[x].attr('src', "images/transparent.png");
+      this.img_holders[x].hide();
     }
 
     submit(){
