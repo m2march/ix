@@ -37,6 +37,7 @@ class Memtest {
 
       this.img_holders = [$("#image1"), $("#image2"),
                           $("#image3"), $("#image4")]
+      this.top_text = $("#number_field")
       this.start_time = new Date()
       this.new_game();
     }
@@ -52,6 +53,7 @@ class Memtest {
     }
 
     start_level() {
+      this.top_text.text("Symbols in this level: " + this.level.number);
       this.responses = [];
       for (var i = 0; i < this.level.number; i++) {
         setTimeout(this.set_image.bind(this, i), i * this.IMG_INTERVAL);
@@ -79,10 +81,11 @@ class Memtest {
             if (this.level.number == 4) {
                 alert("You won!")
                 this.new_game();
+            } else {
+                // End of level
+                this.level = new Level(this.level.number + 1);
+                this.start_level();
             }
-            // End of level
-            this.level = new Level(this.level.number + 1);
-            this.start_level();
           }
       } else {
         // Incorrect answer
