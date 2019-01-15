@@ -10,3 +10,21 @@ body {
   width: 200px;
   padding-bottom: 100px;
 }
+
+#main {
+   margin-left: auto;
+   width: 50%;
+   margin-top: 40px;
+}
+
+#main #number_field {
+    margin: auto;
+    width: 50%;
+    padding: 10px:
+}
+
+#main #images {
+    margin: auto;
+    width: 50%;
+    padding: 10px:
+}
