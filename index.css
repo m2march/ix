@@ -20,6 +20,10 @@ body {
   padding-bottom: 20px;
 }
 
+#images {
+  height: 200px;
+}
+
 button{
   width: 200px;
   margin: 0 20px 0 20px;

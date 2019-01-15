@@ -1,6 +1,7 @@
 
 function random_items(k, items) {
-    """ Selects `k` random items without repeats from `items` """
+
+  // Selects `k` random items without repeats from `items`
 
     var selected = [];
     for (var i = 0; i < k; i++) {
@@ -23,7 +24,7 @@ var symbols = [
     "brawler"
 ]
 
-class Level { 
+class Level {
     constructor(number) {
         this.number = number;
         this.symbols = random_items(number, symbols);
@@ -31,13 +32,75 @@ class Level {
 };
 
 class Memtest {
-    constructor() {}
+    constructor() {
+      this.IMG_INTERVAL = 1000; //ms
+
+      this.start_time = new Date()
+      this.level = new Level(1)
+      this.img_holders = [$("#image1"), $("#image2"),
+                          $("#image3"), $("#image4")]
+      this.responses = [];
+
+      for (var i = 0; i < this.img_holders.length; i++) {
+        this.img_holders[i].hide();
+      }
+      this.start();
+    }
+
+    start() {
+      this.responses = [];
+      for (var i = 0; i < this.level.number; i++) {
+        setTimeout(this.set_image.bind(this, i), i * this.IMG_INTERVAL);
+        setTimeout(this.unset_image.bind(this, i), (i + 1) * this.IMG_INTERVAL);
+      }
+    }
+
+    set_image(x) {
+      this.img_holders[x].attr('src', "images/" + this.level.symbols[x] + ".jpg");
+      this.img_holders[x].show();
+    }
+
+    unset_image(x){
+      this.img_holders[x].hide();
+    }
+
+    submit(){
+      var in_text = $("input").val();
+      in_text = in_text.toLowerCase();
+      if (in_text == this.level.symbols[this.responses.length]) {
+          // Correct answer
+          this.responses.push(in_text);
+          if (this.responses.length == this.level.number) {
+            // End game
+            if (this.level.number == 4) {
+              alert("You won!")
+            }
+            // End of level
+            this.level = new Level(this.level.number + 1);
+            this.start();
+          }
+      } else {
+        // Incorrect answer
+        // TODO: END LEVEL
+      }
+      $("input").val("");
+    }
 };
 
 var TEST = true;
 
 $(document).ready(function() {
     console.log("Loaded");
+
+    var memtest = new Memtest();
+
+    $(".btn-success").click(memtest.submit.bind(memtest));
+
+    $("input").keyup(function(event) {
+      if (event.keyCode == 13) {
+        memtest.submit();
+      }
+    });
 
     if (TEST) {
         console.log("Starting tests...");
@@ -60,4 +123,3 @@ $(document).ready(function() {
         console.log("Testing ended.");
     }
 });
-
