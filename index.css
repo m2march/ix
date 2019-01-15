@@ -8,23 +8,24 @@ body {
 
 #images img{
   width: 200px;
-  padding-bottom: 100px;
+  padding-bottom: 25px;
 }
+
 
 #main {
-   margin-left: auto;
-   width: 50%;
-   margin-top: 40px;
+   margin-top: 20px;
 }
 
-#main #number_field {
-    margin: auto;
-    width: 50%;
-    padding: 10px:
+#header{
+  padding-bottom: 20px;
 }
 
-#main #images {
-    margin: auto;
-    width: 50%;
-    padding: 10px:
+button{
+  width: 200px;
+  margin: 0 20px 0 20px;
+}
+input{
+  height: 35px;
+  margin: 0 20px 0 20px;
+  width: auto;
 }
