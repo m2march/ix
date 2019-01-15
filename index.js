@@ -49,6 +49,9 @@ $(document).ready(function() {
                 if (items.indexOf(x) < 0) {
                     console.log("" + x + " is not a valid value");
                 }
+                if (items.indexOf(x) < i) {
+                    console.log("" + x + " is repeated");
+                }
             }
             if (selected.length != i) {
                 console.log("Selected items are not as many as expected");
