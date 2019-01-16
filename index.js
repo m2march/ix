@@ -40,6 +40,7 @@ class Memtest {
       this.top_text = $("#number_field")
       this.start_time = new Date()
       this.new_game();
+      this.playing = true;
     }
 
     new_game() {
@@ -50,6 +51,9 @@ class Memtest {
         this.img_holders[i].hide();
       }
       this.start_level();
+      this.playing = true;
+      $("#error-msg").text("")
+      $("input").attr("disabled", false);
     }
 
     start_level() {
@@ -71,6 +75,9 @@ class Memtest {
     }
 
     submit(){
+      if (!this.playing) {
+          return;
+      }
       var in_text = $("input").val();
       in_text = in_text.toLowerCase();
       if (in_text == this.level.symbols[this.responses.length]) {
@@ -88,8 +95,11 @@ class Memtest {
             }
           }
       } else {
-        // Incorrect answer
-        // TODO: END LEVEL
+          this.playing = false;
+          $("#error-msg").text("Correct answer is: " + 
+              this.level.symbols[this.responses.length])
+          this.set_image(this.responses.length)
+          $("input").attr("disabled", true);
       }
       $("input").val("");
     }
