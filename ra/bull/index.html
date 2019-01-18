@@ -1,0 +1,37 @@
+<html>
+    <title>Ra bull locations trainer</title>
+<head>
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+    <script>
+        $(document).ready(function() {
+            new Game();
+        })
+    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Select the locations where a bull symbol is found</h2>
+    <div id="buttons" class="d-flex justify-content-center">
+    </div>
+
+    <div class="modal" style="display: none" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Mark the bull symbol location on the image</h4>
+          </div>
+          <div class="modal-body">
+            <div id="title"></div>
+            <canvas id="img" width="1020px" height="600px">
+            </canvas>
+          </div>
+        </div>
+      </div>
+</div>
+</body>
+</html>

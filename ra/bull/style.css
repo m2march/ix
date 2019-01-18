@@ -1,0 +1,19 @@
+.btn {
+    margin: 20px;
+}
+
+.container-fluid {
+    width: 800px;
+}
+
+#title {
+    font-style: bold;
+}
+
+.modal-dialog {
+    width: 1050px ! important;
+}
+
+#buttons {
+    width: 70%;
+}
